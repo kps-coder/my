@@ -6,38 +6,44 @@
 		<meta name="description" content="페이지설명" />
 		<meta name="keywords" content="서비스키워드" />
 		<title>kps coder</title>
-		<script type="text/javascript">
-			document.addEventListener("DOMContentLoaded",function(){
-				const imgContLi = document.querySelectorAll(".imgCont li");
-				let liTotalOdd = 0;
-				let liTotalEven = 0;
-				
-				for(let i = 0 ; i < imgContLi.length; i++){
-					let liHeight = imgContLi[i].scrollHeight;
-					if(i%2 == 0){
-						
-						console.log(liHeight, liTotalOdd);
-						imgContLi[i].style.top = liTotalOdd + "px";
-						liTotalOdd = liTotalOdd + liHeight;
-					} else {
-						console.log(liHeight, liTotalEven);
-						imgContLi[i].style.top = liTotalEven + "px";
-						liTotalEven = liTotalEven + liHeight;
-					}
-				}
-
-				function getHeight(item, index){
-					let itemHeight = item[index].clientHeight;
-					console.log(itemHeight);
-				};
-			});
-		</script>
 		<style>
-			ul {margin:0; padding:0}
-			li {position:absolute; left:0; overflow:hidden; list-style: none; margin:0; padding:0; width:50%; box-sizing: border-box;}
+			html, body {margin:0; padding:0}
+			ul {position:relative; margin:0; padding:0}
+			li {position:absolute; left:0; overflow:hidden; list-style: none; margin:0; padding:0 5px 10px; width:50%; box-sizing: border-box;}
 			li:nth-child(even) {left:50%;}
 			img {width:100%;height:auto;vertical-align:top;}
 		</style>
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded",function(){
+				
+				function imgUiCont(obj) {
+					const imgCont = document.querySelector("." + obj);
+					const imgContLi = document.querySelectorAll("." + obj + " li");
+					let liTotalOdd = 0;
+					let liTotalEven = 0;
+					
+					for(let i = 0 ; i < imgContLi.length; i++){
+						let liHeight = imgContLi[i].clientHeight;
+						if(i%2 == 0){
+							//console.log(liHeight, liTotalOdd);
+							imgContLi[i].style.top = liTotalOdd + "px";
+							liTotalOdd = liTotalOdd + liHeight;
+						} else {
+							//console.log(liHeight, liTotalEven);
+							imgContLi[i].style.top = liTotalEven + "px";
+							liTotalEven = liTotalEven + liHeight;
+						}
+					}
+					if(liTotalOdd > liTotalEven){
+						imgCont.style.height = liTotalOdd + "px";
+					} else {
+						imgCont.style.height = liTotalEven + "px";
+					}
+				}
+				imgUiCont("imgCont");
+			});
+		</script>
+		
 	</head>
 	<body>
 		<ul class="imgCont">
