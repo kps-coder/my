@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="페이지설명" />
+		<meta name="keywords" content="서비스키워드" />
+		<title>kps coder</title>
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded",function(){
+				const imgContLi = document.querySelectorAll(".imgCont li");
+				let liTotalOdd = 0;
+				let liTotalEven = 0;
+				
+				for(let i = 0 ; i < imgContLi.length; i++){
+					let liHeight = imgContLi[i].scrollHeight;
+					if(i%2 == 0){
+						
+						console.log(liHeight, liTotalOdd);
+						imgContLi[i].style.top = liTotalOdd + "px";
+						liTotalOdd = liTotalOdd + liHeight;
+					} else {
+						console.log(liHeight, liTotalEven);
+						imgContLi[i].style.top = liTotalEven + "px";
+						liTotalEven = liTotalEven + liHeight;
+					}
+				}
+
+				function getHeight(item, index){
+					let itemHeight = item[index].clientHeight;
+					console.log(itemHeight);
+				};
+			});
+		</script>
+		<style>
+			ul {margin:0; padding:0}
+			li {position:absolute; left:0; overflow:hidden; list-style: none; margin:0; padding:0; width:50%; box-sizing: border-box;}
+			li:nth-child(even) {left:50%;}
+			img {width:100%;height:auto;vertical-align:top;}
+		</style>
+	</head>
+	<body>
+		<ul class="imgCont">
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+			<li><img src="https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg" alt=""></li>
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+			<li><img src="https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg" alt=""></li>
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+			<li><img src="https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg" alt=""></li>
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+			<li><img src="https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg" alt=""></li>
+			<li><img src="https://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg" alt=""></li>
+			<li><img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" alt=""></li>
+		</ul>
+	</body>
+</html>
