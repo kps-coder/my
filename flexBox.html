@@ -14,6 +14,13 @@
 			img {width:100%;height:auto;vertical-align:top;}
 		</style>
 		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded",function(){
+				imgUiCont("imgCont");
+			});
+			window.addEventListener("resize",function(){
+				imgUiCont("imgCont");
+			});
+
 			function imgUiCont(obj) {
 				const imgCont = document.querySelector("." + obj);
 				const imgContLi = document.querySelectorAll("." + obj + " li");
@@ -38,12 +45,6 @@
 					imgCont.style.height = liTotalEven + "px";
 				}
 			}
-			document.addEventListener("DOMContentLoaded",function(){
-				imgUiCont("imgCont");
-			});
-			window.addEventListener("resize",function(){
-				imgUiCont("imgCont");
-			});
 		</script>
 		
 	</head>
