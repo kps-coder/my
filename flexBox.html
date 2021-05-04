@@ -14,32 +14,34 @@
 			img {width:100%;height:auto;vertical-align:top;}
 		</style>
 		<script type="text/javascript">
-			document.addEventListener("DOMContentLoaded",function(){
+			function imgUiCont(obj) {
+				const imgCont = document.querySelector("." + obj);
+				const imgContLi = document.querySelectorAll("." + obj + " li");
+				let liTotalOdd = 0;
+				let liTotalEven = 0;
 				
-				function imgUiCont(obj) {
-					const imgCont = document.querySelector("." + obj);
-					const imgContLi = document.querySelectorAll("." + obj + " li");
-					let liTotalOdd = 0;
-					let liTotalEven = 0;
-					
-					for(let i = 0 ; i < imgContLi.length; i++){
-						let liHeight = imgContLi[i].clientHeight;
-						if(i%2 == 0){
-							//console.log(liHeight, liTotalOdd);
-							imgContLi[i].style.top = liTotalOdd + "px";
-							liTotalOdd = liTotalOdd + liHeight;
-						} else {
-							//console.log(liHeight, liTotalEven);
-							imgContLi[i].style.top = liTotalEven + "px";
-							liTotalEven = liTotalEven + liHeight;
-						}
-					}
-					if(liTotalOdd > liTotalEven){
-						imgCont.style.height = liTotalOdd + "px";
+				for(let i = 0 ; i < imgContLi.length; i++){
+					let liHeight = imgContLi[i].clientHeight;
+					if(i%2 == 0){
+						//console.log(liHeight, liTotalOdd);
+						imgContLi[i].style.top = liTotalOdd + "px";
+						liTotalOdd = liTotalOdd + liHeight;
 					} else {
-						imgCont.style.height = liTotalEven + "px";
+						//console.log(liHeight, liTotalEven);
+						imgContLi[i].style.top = liTotalEven + "px";
+						liTotalEven = liTotalEven + liHeight;
 					}
 				}
+				if(liTotalOdd > liTotalEven){
+					imgCont.style.height = liTotalOdd + "px";
+				} else {
+					imgCont.style.height = liTotalEven + "px";
+				}
+			}
+			document.addEventListener("DOMContentLoaded",function(){
+				imgUiCont("imgCont");
+			});
+			window.addEventListener("resize",function(){
 				imgUiCont("imgCont");
 			});
 		</script>
