@@ -8,9 +8,8 @@
 		<title>kps coder</title>
 		<style>
 			html, body {margin:0; padding:0}
-			ul {position:relative; margin:0; padding:0}
-			li {position:absolute; left:0; overflow:hidden; list-style: none; margin:0; padding:0 5px 10px; width:50%; box-sizing: border-box;}
-			li:nth-child(even) {left:50%;}
+			ul {position:relative; margin:0; padding:0; overflow:hidden;}
+			li {list-style: none; margin:0; padding:0 5px 10px; float:left; width:50%; box-sizing: border-box;}
 			img {width:100%;height:auto;vertical-align:top;}
 		</style>
 		<script type="text/javascript">
@@ -31,12 +30,16 @@
 					let liHeight = imgContLi[i].clientHeight;
 					if(i%2 == 0){
 						//console.log(liHeight, liTotalOdd);
+						imgContLi[i].style.position = "absolute";
 						imgContLi[i].style.top = liTotalOdd + "px";
-						liTotalOdd = liTotalOdd + liHeight;
+						imgContLi[i].style.left = "0";
+						liTotalOdd += liHeight;
 					} else {
 						//console.log(liHeight, liTotalEven);
+						imgContLi[i].style.position = "absolute";
 						imgContLi[i].style.top = liTotalEven + "px";
-						liTotalEven = liTotalEven + liHeight;
+						imgContLi[i].style.left = "50%";
+						liTotalEven += liHeight;
 					}
 				}
 				if(liTotalOdd > liTotalEven){
