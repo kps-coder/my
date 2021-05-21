@@ -1,0 +1,114 @@
+# ARIA 
+행복ICT - ARIA 속성관련 테스트
+
+# ARIA 속성관련 테스트 
+
+##  화면낭독기에서 ARIA 고유의 기능이 정상적으로 실행되어서 사용하는데 무리가 없는 경우 O로 표기하였고, 기기마다 다르거나 부적절한 경우에는 X로 표기하였습니다.  
+## X의 경우 ARIA를사용하는 것 자체는 문제가 없으나 심사기관에서 사용자 평가 시 해당 기능이 되지 않을 경우 위배로 잡힐 수 있으니 개선 시 주의가 필요 합니다.
+
+01. aria-hidden
+- 설명 : 화면낭독기 인식 여부
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+02. aria-checked
+- 설명 : 라디오/체크상자의 선택 여부
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+03. aria-labelledby
+- 설명 : 간결한 설명을 참조
+- 상태정보 인식 여부 : iOS/AOS : <input>, <select>, <textarea>와 매칭한 경우에는 매칭된 값과 현재의 값을 정상적으로 인식하지만
+나머지의 경우에는 기기나 조건에 따라 불가능하거나 불규칙하게 읽혀서 권장하지 않음.(예제참조)
+
+※ 음성인식이 적절한 경우(input과 매칭)
+<div>
+  <p id="tip_tel_02" role="tooltip">인증번호</p>
+  <input type="tel" aria-labelledby="tip_tel_02" title="숫자만 입력가능">
+</div>
+
+※ 음성인식이 부적절한 경우(h2와 매칭)
+<div >
+  <h2 aria-labelledby="name2">이름</h2>
+  <p role="tooltip" id="name2">문자만 입력가능</p>
+</div>
+
+04. aria-haspopup
+- 설명 : 팝업 상태
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+05. aria-selected
+- 설명 : 선택 상태
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+06. aria-controls
+- 설명 : 제어 대상 명시
+- 상태정보 인식 여부 : iOS(X), AOS(O)
+
+07. aria-describedby
+- 설명 : 자세한 설명을 참조
+- 상태정보 인식 여부 : iOS/AOS : <input>, <select>, <textarea>, <h*>, <a>, <button>, <input>, <img>와 매칭한 경우에는 매칭된 값과 현재의 값을 정상적으로 인식하지만
+나머지 경우에는 기기나 조건에 따라 불가능하거나 불규칙하게 읽혀서 권장하지 않음.(예제참조)
+
+※ 음성인식이 적절한 경우(button과 매칭)
+<div>
+  <button aria-describedby="tip_del">게시물 삭제</button>
+  <p id="tip_del" role="tooltip" hidden>삭제 후 복원 불가능</p>
+</div>
+
+※ 음성인식이 부적절한 경우(span과 매칭)
+<div>
+  <span aria-describedby="txt_detail_01">사용자정보</span>
+  <div id="txt_detail_01" hidden>
+    <h1>상세내용</h1>
+    <ul>
+      <li>이름 : 홍길동</li>
+      <li>나이 : 500세</li>
+    </ul>
+  </div>
+</div>
+
+08. aria-pressed
+- 설명 : 눌림 상태
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+09. aria-disabled
+- 설명 : 비활성화 상태
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+10. aria-label
+- 설명 : 간결한 설명
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+11. aria-haspoup (aria-haspopup 와 동일)
+- 설명 : 팝업 상태
+- 상태정보 인식 여부 : iOS(O), AOS(O)
+
+12. role : 다음 내용 참조
+탭 목록, 탭, 탭 패널(role="tablist|tab|tabpanel")
+- 설명 : 탭
+- 역할정보 인식 여부
+  . role="tablist" : iOS(X), AOS(X)
+  . role="tab" : iOS(O), AOS(O)
+  . role="tabpanel" : iOS(X), AOS(O)
+※ 일부 화면낭독기에서 역할정보를 인식하는 정도이지 특별한 기능을 제공하지는 않는다.
+
+툴팁(role="tooltip")
+- 설명 : 부가설명
+- 역할정보 인식 여부 : iOS(X), AOS(O)
+
+대화상자(role="alert|alertdialog|dialog")
+- 설명 : 경고창 등의 레이어 팝업
+- 역할정보 인식 여부
+  . role="alert"(알럿) : iOS(X), AOS(X)
+  . role="alertdialog"(알럿 대화상자) : iOS(O), AOS(X)
+  . role="dialog"대화상자(대화상자) : iOS(O), AOS(X)
+- 일부 화면낭독기에서 역할정보를 인식하는 정도이지 활성화시 자동초점이 적용되지는 않는다.
+
+
+의미 없음(role="none presentation")
+- 설명 : 보조기기에서 마크업의 의미를 읽지 않음
+- 사용법 : 간혹 <li>와 링크(또는 버튼)에 TalkBack 초점이 중복으로 접근되는 경우가 있다. 이 때는 이벤트가 없는 요소에 접근하지 않도록 처리를 해주어야 하는데 이때 사용하면 용이하다(다음 예제 참조)
+
+<ul role="tablist">
+  <li role="presentation"><a role="tab" aria-selected="true">5GX 플랜</a></li>
+  <li role="presentation"><a role="tab" aria-selected="false">함께하면 유용한 상품</a></li>
+</ul>
