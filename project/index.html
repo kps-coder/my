@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>HTML List</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/css/reset.css">
+
+    <!-- 가이드용 -->
+    <link rel="stylesheet" href="guide/asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="guide/asset/css/guide.css">
+    <script type="text/javascript" src="guide/asset/js/ui-guide.js"></script>
+    <!-- //가이드용 -->
+
+    <style>
+      header {padding:20px; background-color:#0086c3}
+      header h1 {color:#fff; font-size:20px; text-align:center;}
+      h2 {padding:10px; font-size:16px; color:#fff; background-color:#64b5f6;}
+      table {width:100%;}
+      table th {height:35px; border:1px solid #ccc; vertical-align: middle; background-color: #ddd;}
+      table td {height:35px; border:1px solid #ccc; vertical-align: middle;}
+      .no {text-align:center; font-weight:bold}
+      .date {text-align:center}
+      .status {position:absolute; right:20px; top:70px; font-weight: bold;}
+      .status #finish {padding:0 10px; border-radius: 20px; font-weight:bold; background-color:#fff}
+    </style>
+  </head>
+  <body>
+    <div class="g_wrap html_list">
+      <header>
+        <h1>:: HTML LIST ::</h1>
+        <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
+      </header>
+      <nav class="g-gnb-wrap">
+        <div class="gnb-container">
+          <div class="gnb-head"></div>
+          <ul>
+            <li><a href="index.html">HTML List</a></li>
+            <li><a href="guide/guide.html">UI/UX Guide</a></li>
+          </ul>
+          <div class="gnb-close"><button type="button"><i class="fas fa-times"></i></button></div>
+        </div>
+      </nav>
+      <div class="status">
+        진행현황 : <span id="finish"></span> / <span id="total"></span>
+      </div>
+      <h2>#공통</h2>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:10%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">No</th>
+            <th scope="col" colspan="4">화면</th>
+            <th scope="col" rowspan="2">파일</th>
+            <th scope="col" rowspan="2">완료일</th>
+            <th scope="col" rowspan="2">비고</th>
+          </tr>
+          <tr>
+            <th scope="col">1 depth</th>
+            <th scope="col">2 depth</th>
+            <th scope="col">3 depth</th>
+            <th scope="col">ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="id"></td>
+            <td class="file"></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>#모집인</h2>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:13%">
+          <col style="width:10%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="id"></td>
+            <td class="file"></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="id"></td>
+            <td class="file"></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="id"></td>
+            <td class="file"></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      let elemNo = document.querySelectorAll(".no");
+      let elemDate = document.querySelectorAll(".date");
+      let count = 0;
+      
+      elemNo.forEach(function(obj, i){
+        obj.innerHTML= i + 1;
+      });
+
+      total.innerHTML = elemNo.length;
+
+      elemDate.forEach(function(obj, i){
+        console.log(elemDate);
+        if(obj.hasChildNodes()){
+          count = count + 1;
+          finish.innerHTML = count;
+        } else {
+          finish.innerHTML = 0;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Guide List</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asset/css/reset.css">
+
+    <!-- 가이드용 -->
+    <link rel="stylesheet" href="asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="asset/css/guide.css">
+    <script type="text/javascript" src="asset/js/ui-guide.js"></script>
+    <!-- //가이드용 -->
+
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <script type="text/javascript" src="../asset/js/ui-common.js"></script>
+
+  </head>
+  <body>
+    <div class="g_wrap guide_list">
+      <header>
+        <h1>UI/UX Guide</h1>
+        <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
+      </header>
+      <nav class="g-gnb-wrap">
+        <div class="gnb-container">
+          <div class="gnb-head"></div>
+          <ul>
+            <li><a href="../index.html">HTML List</a></li>
+            <li><a href="guide.html">UI/UX Guide</a></li>
+          </ul>
+          <div class="gnb-close"><button type="button"><i class="fas fa-times"></i></button></div>
+        </div>
+      </nav>
+      <div class="g_tabHead">
+        <ul>
+          <li class="active"><a href="#tab01">Button</a></li>
+          <li><a href="#tab02">Inputs</a></li>
+          <li><a href="#tab03">Tab</a></li>
+          <li><a href="#tab04">Mobal</a></li>
+        </ul>
+      </div>
+      <div class="g_tabBody">
+        <!-- 버튼 가이드 -->
+        <section class="tabContent on" id="tab01">
+          <h2><i class="far fa-caret-square-right"></i> Button Guide</h2>
+          <div class="contBody">
+            <button type="button" class="btn-def">버튼 1</button>
+            <button type="button" class="btn-pri">버튼 2</button>
+
+  <xmp>
+    <button type="button" class="btn-def">버튼 1</button>
+    <button type="button" class="btn-pri">버튼 2</button>
+  </xmp>
+
+    <hr/>
+            <a href="#" class="btn-def">버튼 1</a>
+            <a href="#" class="btn-pri">버튼 2</a>
+  <xmp>
+    <a href="#" class="btn-def">버튼 1</a>
+    <a href="#" class="btn-pri">버튼 2</a>
+  </xmp>
+          </div>
+          
+        </section>
+
+        <!-- 인풋 가이드 -->
+        <section class="tabContent" id="tab02">
+          <h2><i class="far fa-caret-square-right"></i> Inputs Guide</h2>
+          <div class="contBody">
+            <h3><i class="fas fa-hashtag"></i> radio</h3>
+            <input type="radio" name="rdo01" id="rdo01">
+            <input type="radio" name="rdo01" id="rdo02">
+            <hr>
+            <h3><i class="fas fa-hashtag"></i> checkbox</h3>
+            <input type="checkbox" name="ckb01" id="ckb01">
+            <input type="checkbox" name="ckb01" id="ckb02">
+            <hr>
+            <h3><i class="fas fa-hashtag"></i> text</h3>
+            <input type="text">
+            <hr>
+            <h3><i class="fas fa-hashtag"></i> password</h3>
+            <input type="password" name="pw01" id="pw01">
+          </div>
+        </section>
+
+        <!-- 탭 가이드 -->
+        <section class="tabContent" id="tab03">
+          <h2><i class="far fa-caret-square-right"></i> Tab Guide</h2>
+          <div class="contBody">
+            <div class="tab-head">
+              <ul>
+                <li class="active"><a href="#tab1-01">탭 1</a></li>
+                <li><a href="#tab1-02">탭 2</a></li>
+                <li><a href="#tab1-03">탭 3</a></li>
+              </ul>
+            </div>
+            <div class="tab-body">
+              <section class="tabContent on" id="tab1-01">탭1 내용</section>
+              <section class="tabContent" id="tab1-02">탭2 내용</section>
+              <section class="tabContent" id="tab1-03">탭3 내용</section>
+            </div>
+          </div>
+  <xmp>
+    <div class="tab-head">
+      <ul>
+        <li class="active"><a href="#tab1-01">탭 1</a></li>
+        <li><a href="#tab1-02">탭 2</a></li>
+        <li><a href="#tab1-03">탭 3</a></li>
+      </ul>
+    </div>
+    <div class="tab-body">
+      <section class="tabContent on" id="tab1-01">탭1 내용</section>
+      <section class="tabContent" id="tab1-02">탭2 내용</section>
+      <section class="tabContent" id="tab1-03">탭3 내용</section>
+    </div>
+  </xmp>
+        </section>
+
+        <!-- 팝업 가이드 -->
+        <section class="tabContent" id="tab04">
+          <h2><i class="far fa-caret-square-right"></i> Mobal Guide</h2>
+          <div class="contBody">
+            <a href="#modal-01" class="btn-def js-modalPop">.type-01</a>
+            <a href="#modal-02" class="btn-def js-modalPop">.type-01</a>
+  <xmp>
+    <a href="#modal-01" class="btn-def js-modalPop">클릭해주세요</a>
+
+    <div class="modal-wrap type-01" id="modal-01">
+      <div class="modal-container">
+        <header class="modal-head"><h1><i class="fas fa-bullseye"></i> modal popup</h1></header>
+        <div class="modal-body">
+          <p>MODAL CONTENT</p>       
+        </div>
+        <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
+      </div>
+    </div>
+  </xmp>
+  <hr>
+            <a href="#modal-03" class="btn-def js-modalPop">.type-full</a>
+  <xmp>
+    <a href="#modal-03" class="btn-def js-modalPop">클릭해주세요</a>
+
+    <div class="modal-wrap type-full" id="modal-03">
+      <div class="modal-container">
+        <header class="modal-head"><h1><i class="fas fa-bullseye"></i> modal popup</h1></header>
+        <div class="modal-body">
+          <p>MODAL CONTENT</p>
+        </div>
+        <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
+      </div>
+    </div>
+  </xmp>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- modal content wrap -->
+    <div class="modal-wrap type-01" id="modal-01">
+      <div class="modal-container">
+        <header class="modal-head"><h1><i class="fas fa-bullseye"></i> modal popup</h1></header>
+        <div class="modal-body">
+          <p>MODAL CONTENT</p>       
+        </div>
+        <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
+      </div>
+    </div>
+
+    <!-- modal content wrap -->
+    <div class="modal-wrap type-01" id="modal-02">
+      <div class="modal-container">
+        <header class="modal-head"><h1><i class="fas fa-bullseye"></i> modal popup</h1></header>
+        <div class="modal-body">
+          <div style="height:1500px">
+            <p>MODAL CONTENT</p><br>
+            <button type="button" class="btn-def">클릭</button>
+          </div>                    
+        </div>
+        <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
+      </div>
+    </div>
+
+    <!-- modal content wrap -->
+    <div class="modal-wrap type-full" id="modal-03">
+      <div class="modal-container">
+        <header class="modal-head"><h1><i class="fas fa-bullseye"></i> modal popup</h1></header>
+        <div class="modal-body">
+          <div style="height:10000px">
+            <p>MODAL CONTENT</p>
+            <hr>
+            <a href="http://www.naver.com" class="btn-pri" target="_blank">naver</a>
+          </div>                    
+        </div>
+        <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      tabControl("g_tabHead", "g_tabBody"); // 가이드 상단 탭
+    </script>
+  </body>
+</html>
