@@ -2,7 +2,8 @@
 
 .g_wrap > header {padding:20px; background-color:#0086c3}
 .g_wrap > header h1 {color:#fff; font-size:20px; text-align:center;}
-.g_tabHead {background-color: #72e7ff;}
+.g_tabHead {width:100%; overflow-y:hidden; background-color: #72e7ff;}
+.g_tabHead::-webkit-scrollbar { display: none; /* Chrome, Safari, Opera*/}
 .g_tabHead ul {display:flex;}
 .g_tabHead ul > li {border: 5px solid transparent;}
 .g_tabHead ul > li > a {display:inline-block; padding:10px 30px;font-size:16px; font-weight: bold;}
