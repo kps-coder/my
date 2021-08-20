@@ -31,6 +31,7 @@
 .tab-head ul > li.active {border-bottom:5px solid #28b5f4}
 .tab-body > .tabContent {display:none; padding:20px;}
 .tab-body > .tabContent.on {display:block}
+.tab-body .tab-inner {padding:20px}
 
 
 /* mobal */

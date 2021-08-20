@@ -1,6 +1,6 @@
 
 window.addEventListener('DOMContentLoaded', function(){
-  tabControl("tab-head", "tab-body"); // tab
+  tabControl("js-tab-head", "js-tab-body"); // tab
   modalPopControl(); // modal popup
   gnbControl(); // gnb
 });

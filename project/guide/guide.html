@@ -38,6 +38,8 @@
           <li><a href="#tab02">Inputs</a></li>
           <li><a href="#tab03">Tab</a></li>
           <li><a href="#tab04">Mobal</a></li>
+          <li><a href="#tab05">Table</a></li>
+          <li><a href="#tab06">board</a></li>
         </ul>
       </div>
       <div class="g_tabBody">
@@ -88,28 +90,53 @@
         <section class="tabContent" id="tab03">
           <h2><i class="far fa-caret-square-right"></i> Tab Guide</h2>
           <div class="contBody">
+            <h3><i class="fas fa-hashtag"></i>Tab Link</h3>
             <div class="tab-head">
+              <ul>
+                <li class="active"><a href="#url">탭 1</a></li>
+                <li><a href="#url">탭 2</a></li>
+                <li><a href="#url">탭 3</a></li>
+              </ul>
+            </div>
+            <div class="tab-body">
+              <div class="tab-inner">탭내용</div>
+            </div>
+  <xmp>
+    <div class="tab-head">
+      <ul>
+        <li class="active"><a href="#url">탭 1</a></li>
+        <li><a href="#url">탭 2</a></li>
+        <li><a href="#url">탭 3</a></li>
+      </ul>
+    </div>
+    <div class="tab-body">
+      <div class="tab-inner">탭내용</div>
+    </div>
+  </xmp>
+            <hr>
+            <h3><i class="fas fa-hashtag"></i> 동적 Tab</h3>
+            <div class="tab-head js-tab-head">
               <ul>
                 <li class="active"><a href="#tab1-01">탭 1</a></li>
                 <li><a href="#tab1-02">탭 2</a></li>
                 <li><a href="#tab1-03">탭 3</a></li>
               </ul>
             </div>
-            <div class="tab-body">
+            <div class="tab-body js-tab-body">
               <section class="tabContent on" id="tab1-01">탭1 내용</section>
               <section class="tabContent" id="tab1-02">탭2 내용</section>
               <section class="tabContent" id="tab1-03">탭3 내용</section>
             </div>
           </div>
   <xmp>
-    <div class="tab-head">
+    <div class="tab-head js-tab-head">
       <ul>
         <li class="active"><a href="#tab1-01">탭 1</a></li>
         <li><a href="#tab1-02">탭 2</a></li>
         <li><a href="#tab1-03">탭 3</a></li>
       </ul>
     </div>
-    <div class="tab-body">
+    <div class="tab-body js-tab-body">
       <section class="tabContent on" id="tab1-01">탭1 내용</section>
       <section class="tabContent" id="tab1-02">탭2 내용</section>
       <section class="tabContent" id="tab1-03">탭3 내용</section>
