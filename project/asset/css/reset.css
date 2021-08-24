@@ -54,3 +54,28 @@ button {
 a {
 	text-decoration: none;
 }
+caption {
+	caption-side: bottom;
+	display:inline-block;
+	position:absolute;
+	z-index: -1;
+	color:transparent;
+	overflow:hidden;
+	border:0;
+	width:1px;
+	height:1px;
+	clip:rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
+.hidden {
+	display:inline-block;
+	position:relative;
+	z-index: -1;
+	color:transparent;
+	overflow:hidden;
+	border:0;
+	width:1px;
+	height:1px;
+	clip:rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
