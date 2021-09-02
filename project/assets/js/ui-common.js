@@ -38,9 +38,11 @@ function modalPopControl() {
       const modalClsBtn = document.querySelector(modalId + " .modal-close > button");
       console.log(modalId);
       modalWrap.classList.add("open");
+      document.body.style.overflow = "hidden";
       modalClsBtn.addEventListener("click", function(){
         modalWrap.classList.remove("open");
         obj.focus();
+        document.body.removeAttribute("style");
       });
     });
   });
