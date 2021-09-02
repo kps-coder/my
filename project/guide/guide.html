@@ -4,22 +4,29 @@
     <title>Guide List</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/default.css">
 
     <!-- 가이드용 -->
     <link rel="stylesheet" href="asset/fontawesome/css/all.css">
     <link rel="stylesheet" href="asset/css/guide.css">
-    <script type="text/javascript" src="asset/js/ui-guide.js"></script>
+    <script src="asset/js/ui-guide.js"></script>
     <!-- //가이드용 -->
 
-    <link rel="stylesheet" href="../asset/css/style.css">
-    <script type="text/javascript" src="../asset/js/ui-common.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/ui-common.js"></script>
+
+    <style>
+      .g_tabHead {position:sticky; top:0; z-index: 10;}
+      .toggle-box {display:none; background-color:#eee}
+      .toggle-box.on {display:inline-block; padding:5px}
+      .btns-def.on {background-color: #eee;}
+    </style>
 
   </head>
   <body>
     <div class="g_wrap guide_list">
       <header>
-        <h1>UI/UX Guide</h1>
+        <h1><i class="fab fa-css3"></i> UI/UX Guide</h1>
         <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
       </header>
       <nav class="g-gnb-wrap">
@@ -34,7 +41,8 @@
       </nav>
       <div class="g_tabHead">
         <ul>
-          <li class="active"><a href="#tab01">Button</a></li>
+          <li class="active"><a href="#tab00">Guide</a></li>
+          <li><a href="#tab01">Button</a></li>
           <li><a href="#tab02">Inputs</a></li>
           <li><a href="#tab03">Tab</a></li>
           <li><a href="#tab04">Mobal</a></li>
@@ -43,27 +51,198 @@
         </ul>
       </div>
       <div class="g_tabBody">
+        <section class="tabContent on" id="tab00">
+          <h2><i class="far fa-caret-square-right"></i> Css Guide</h2>
+          <div class="contBody">
+            <ul class="lh4">
+              <li>* <mark>common.css</mark>에서 import하여 사용 <br>
+                  <ul>
+                    <li>- default.css : 초기화 및 기본 css 설정</li>
+                    <li>- style.css : 디자인 스타일 설정</li>
+                  </ul>
+              </li>
+              <li>* 파일 위치 : assets/css/</li>
+            </ul>
+  <xmp>
+      /* font */
+      @import url("../fonts/NotoSans/notosans.css");
+      @import url("../fonts/Roboto/roboto.css");
+
+      /* style */
+      @import url("default.css");    /* 초기화 및 기본 css 설정 */
+      @import url("style.css");    /* 디자인 스타일 설정 */
+  </xmp>
+          </div>
+
+          <hr>
+          <h2><i class="far fa-caret-square-right"></i> Font Guide</h2>
+          <ul class="lh4">
+            <li>* 기본 폰트 : <mark>Noto Sans, Roboto</mark> 사용</li>
+            <li>* 기본 사이즈 : <b class="fc-blue">16px</b></li>
+            <li>* 파일 위치 : assets/fonts/</li>
+          </ul>
+  <xmp>
+    body {
+      color:#333;
+      font-size: 16px;     /* default size */
+      font-family: 'Noto Sans', 'Roboto', 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+    }
+  </xmp>
+          <div class="contBody col2">
+            <div class="column">
+              <h3><i class="fas fa-hashtag"></i> Noto sans</h3>
+  <xmp class="scroll" data-toggle-target="1">
+    @font-face {
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: 100;
+      src:url(NotoSans-Thin.woff2) format('woff2'),
+          url(NotoSans-Thin.woff) format('woff'),
+          url(NotoSans-Thin.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 300;
+        src:url(NotoSans-Light.woff2) format('woff2'),
+            url(NotoSans-Light.woff) format('woff'),
+            url(NotoSans-Light.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 350;
+        src:url(NotoSans-DemiLight.woff2) format('woff2'),
+            url(NotoSans-DemiLight.woff) format('woff'),
+            url(NotoSans-DemiLight.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        src:url(NotoSans-Regular.woff2) format('woff2'),
+            url(NotoSans-Regular.woff) format('woff'),
+            url(NotoSans-Regular.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        src:url(NotoSans-Medium.woff2) format('woff2'),
+            url(NotoSans-Medium.woff) format('woff'),
+            url(NotoSans-Medium.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        src:url(NotoSans-Bold.woff2) format('woff2'),
+            url(NotoSans-Bold.woff) format('woff'),
+            url(NotoSans-Bold.otf) format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 900;
+        src:url(NotoSans-Black.woff2) format('woff2'),
+            url(NotoSans-Black.woff) format('woff'),
+            url(NotoSans-Black.otf) format('opentype');
+    }
+  </xmp>
+  <button type="button" class="btn-show" data-toggle-obj="1"><!-- xmp toggle btn --></button>
+            </div>
+            <div class="column">
+              <h3><i class="fas fa-hashtag"></i> Roboto</h3>
+  <xmp class="scroll" data-toggle-target="2">
+    @font-face {  
+      font-family: 'Roboto';  
+      font-style: normal;  
+      font-weight: 100;
+      src: url(Roboto-Thin.woff2) format('woff2'),
+           url(Roboto-Thin.woff) format('woff'),
+           url(Roboto-Thin.otf) format('opentype');
+    }
+    @font-face {
+        font-family: 'Roboto';  
+        font-style: normal;  
+        font-weight: 300;
+        src: url(Roboto-Light.woff2) format('woff2'),
+            url(Roboto-Light.woff) format('woff'),
+            url(Roboto-Light.otf) format('opentype');
+    }
+    @font-face {
+        font-family: 'Roboto';   
+        font-style: normal;   
+        font-weight: 400;
+        src: url(Roboto-Regular.woff2) format('woff2'),
+            url(Roboto-Regular.woff) format('woff'),
+            url(Roboto-Regular.otf) format('opentype');
+    }
+    @font-face {
+        font-family: 'Roboto';   
+        font-style: normal;   
+        font-weight: 500;
+        src: url(Roboto-Medium.woff2) format('woff2'),
+            url(Roboto-Medium.woff) format('woff'),
+            url(Roboto-Medium.otf) format('opentype'); 
+    }
+    @font-face {   font-family: 'Roboto';   
+        font-style: normal;   
+        font-weight: 700;
+        src: url(Roboto-Bold.woff2) format('woff2'),
+            url(Roboto-Bold.woff) format('woff'),
+            url(Roboto-Bold.otf) format('opentype'); 
+    }
+  </xmp>
+  <button type="button" class="btn-show" data-toggle-obj="2"><!-- xmp toggle btn --></button>
+            </div>
+            
+          </div>
+        </section>
 <!-- 버튼 가이드 -->
-        <section class="tabContent on" id="tab01">
+        <section class="tabContent" id="tab01">
           <h2><i class="far fa-caret-square-right"></i> Button Guide</h2>
           <div class="contBody">
-            <button type="button" class="btn-def">버튼 1</button>
-            <button type="button" class="btn-pri">버튼 2</button>
+            <button type="button" class="btns-def">버튼 1</button>
+            <button type="button" class="btns-pri">버튼 2</button>
+            <button type="button" class="btns-pri" disabled>버튼 2 disabled</button>
 
   <xmp>
-    <button type="button" class="btn-def">버튼 1</button>
-    <button type="button" class="btn-pri">버튼 2</button>
+    <button type="button" class="btns-def">버튼 1</button>
+    <button type="button" class="btns-pri">버튼 2</button>
   </xmp>
 
     <hr/>
-            <a href="#" class="btn-def">버튼 1</a>
-            <a href="#" class="btn-pri">버튼 2</a>
+            <a href="#" class="btns-def">버튼 1</a>
+            <a href="#" class="btns-pri">버튼 2</a>
+            <a href="http://www.naver.com" class="btns-pri disabled">버튼 2 disabled</a>
   <xmp>
-    <a href="#" class="btn-def">버튼 1</a>
-    <a href="#" class="btn-pri">버튼 2</a>
+    <a href="#" class="btns-def">버튼 1</a>
+    <a href="#" class="btns-pri">버튼 2</a>
+    <a href="http://www.naver.com" class="btns-pri disabled">버튼 2 disabled</a>
   </xmp>
           </div>
-          
+
+          <h2><i class="far fa-caret-square-right"></i> Toggle Button</h2>
+          <div class="contBody">
+            <ul>
+              <li>* data-toggle-obj와 data-toggle-target을 고유한 같은 값으로 연결</li>
+            </ul>
+            <button type="button" class="btns-def" data-toggle-obj="3">click me</button>
+            <div class="toggle-box" data-toggle-target="3">
+              Toggle Box
+            </div>
+  <xmp>
+    <button type="button" class="btns-def" data-toggle-obj="3">Toggle</button>
+    <div class="toggle-box" data-toggle-target="3">Toggle Box</div>
+  </xmp>
+          </div>
         </section>
 <!-- //버튼 가이드 -->
 
@@ -84,6 +263,9 @@
             <hr>
             <h3><i class="fas fa-hashtag"></i> password</h3>
             <input type="password" name="pw01" id="pw01">
+            <hr>
+            <h3><i class="fas fa-hashtag"></i> date</h3>
+            <input type="date">
           </div>
         </section>
 <!-- //인풋 가이드 -->
@@ -146,15 +328,14 @@
   </xmp>
         </section>
 <!-- // 탭 가이드 -->
-
 <!-- 팝업 가이드 -->
         <section class="tabContent" id="tab04">
           <h2><i class="far fa-caret-square-right"></i> Mobal Guide</h2>
           <div class="contBody">
-            <a href="#modal-01" class="btn-def js-modalPop">.type-01</a>
-            <a href="#modal-02" class="btn-def js-modalPop">.type-01</a>
+            <a href="#modal-01" class="btns-def js-modalPop">.type-01</a>
+            <a href="#modal-02" class="btns-def js-modalPop">.type-01</a>
   <xmp>
-    <a href="#modal-01" class="btn-def js-modalPop">클릭해주세요</a>
+    <a href="#modal-01" class="btns-def js-modalPop">클릭해주세요</a>
 
     <div class="modal-wrap type-01" id="modal-01">
       <div class="modal-container">
@@ -167,9 +348,9 @@
     </div>
   </xmp>
   <hr>
-            <a href="#modal-03" class="btn-def js-modalPop">.type-full</a>
+            <a href="#modal-03" class="btns-def js-modalPop">.type-full</a>
   <xmp>
-    <a href="#modal-03" class="btn-def js-modalPop">클릭해주세요</a>
+    <a href="#modal-03" class="btns-def js-modalPop">클릭해주세요</a>
 
     <div class="modal-wrap type-full" id="modal-03">
       <div class="modal-container">
@@ -246,24 +427,72 @@
 <!-- //테이블 가이드 -->
 <!-- 게시판 가이드 -->
         <section class="tabContent" id="tab06">
-          <div class="board-style">
+          <h2><i class="far fa-caret-square-right"></i> Board Guide</h2>
+
+          <h3><i class="fas fa-hashtag"></i> List</h3>
+          <div class="board-list">
             <table>
-              <caption>테이블 설명</caption>
+              <caption>게시판 설명</caption>
               <colgroup>
                 <col style="width:10%">
-                <col style="width:70%">
+                <col style="width:50%">
                 <col style="width:20%">
-                <col style="width:30%">
+                <col style="width:20%">
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
+                  <th scope="col">번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">날짜</th>
+                  <th scope="col">작성자</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="subject"><a href="#">내용 내용 내용 내용</a></td>
+                  <td>2021-08-01</td>
+                  <td>홍길동</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="subject"><a href="#">내용 내용 내용 내용</a></td>
+                  <td>2021-08-01</td>
+                  <td>홍길동</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="subject"><a href="#">내용 내용 내용 내용</a></td>
+                  <td>2021-08-01</td>
+                  <td>홍길동</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td class="subject"><a href="#">내용 내용 내용 내용</a></td>
+                  <td>2021-08-01</td>
+                  <td>홍길동</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td class="subject"><a href="#">내용 내용 내용 내용</a></td>
+                  <td>2021-08-01</td>
+                  <td>홍길동</td>
+                </tr>
+              </tbody>
             </table>
+          </div>
+          <div class="page-nav">
+            <a href="#n">처음</a>
+            <a href="#n">이전</a>
+            <span class="page-num">
+              <a href="#n">1</a>
+              <a href="#n">2</a>
+              <a href="#n">3</a>
+              <a href="#n">4</a>
+              <a href="#n">5</a>
+            </span>
+            <a href="#n">다음</a>
+            <a href="#n">마지막</a>
           </div>
         </section>
 <!-- //게시판 가이드 -->
@@ -288,7 +517,7 @@
         <div class="modal-body">
           <div style="height:1500px">
             <p>MODAL CONTENT</p><br>
-            <button type="button" class="btn-def">클릭</button>
+            <button type="button" class="btns-def">클릭</button>
           </div>                    
         </div>
         <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
@@ -303,15 +532,31 @@
           <div style="height:10000px">
             <p>MODAL CONTENT</p>
             <hr>
-            <a href="http://www.naver.com" class="btn-pri" target="_blank">naver</a>
+            <a href="http://www.naver.com" class="btns-pri" target="_blank">naver</a>
           </div>                    
         </div>
         <div class="modal-close"><button type="button"><i class="far fa-window-close"></i></button></div>
       </div>
     </div>
 
+    <footer>
+      <p>copyright 2021. ODS all rights reserved.</p>
+    </footer>
+
     <script type="text/javascript">
       tabControl("g_tabHead", "g_tabBody"); // 가이드 상단 탭
+
+      const tabBtn = document.querySelectorAll(".g_tabHead li");
+      const tabContent = document.querySelectorAll(".tabContent");
+      tabBtn.forEach(function(obj, i){
+        obj.addEventListener("click",function(e){
+          setTimeout(function(){
+            const scroller = document.scrollingElement.scrollTop;
+            //console.log(scroller);
+            document.scrollingElement.scrollTop = scroller - 46;
+          }, 1);
+        });
+      });
     </script>
   </body>
 </html>

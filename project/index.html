@@ -2,82 +2,122 @@
 <html lang="ko">
   <head>
     <title>HTML List</title>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/css/reset.css">
+    <link rel="stylesheet" href="assets/css/default.css">
 
     <!-- 가이드용 -->
     <link rel="stylesheet" href="guide/asset/fontawesome/css/all.css">
     <link rel="stylesheet" href="guide/asset/css/guide.css">
-    <script type="text/javascript" src="guide/asset/js/ui-guide.js"></script>
+    <script src="guide/asset/js/ui-guide.js"></script>
     <!-- //가이드용 -->
 
     <style>
-      header {padding:20px; background-color:#0086c3}
-      header h1 {color:#fff; font-size:20px; text-align:center;}
-      h2 {padding:10px; font-size:16px; color:#fff; background-color:#64b5f6;}
-      table {width:100%;}
-      table th {height:35px; border:1px solid #ccc; vertical-align: middle; background-color: #ddd;}
-      table td {height:35px; border:1px solid #ccc; vertical-align: middle;}
+      .fas {color:inherit} 
+
+      .fixed-head {position:fixed; top:0; width:100%; z-index:10}
+    
+      h2 {position:relative; padding:10px; margin-bottom:1px; font-size:16px; color:#fff; background-color:#64b5f6;}
+      table {width:100%; line-height:1.3; margin-top:-2px; border-collapse: separate;}
+      table * {font-size:14px}
+      table thead th {height:25px; border-right:1px solid #ccc; border-bottom:1px solid #ccc; line-height:1.3; vertical-align: middle; background-color: #ddd}
+      table thead th > span {letter-spacing: -1px;}
+      table tbody th {height:35px; border-right:1px solid #ccc; border-bottom:1px solid #ccc; border-top:1px solid #ccc; line-height:1.3; padding-left:20px; line-height:1.3; vertical-align: middle; text-align:left; letter-spacing: -1px; background-color: #eee;}
+      table td {height:27px; padding:5px 10px; line-height:1.3; border-right:1px solid #ccc; border-bottom:1px solid #f1f1f1; vertical-align: middle;}
+      table tr:nth-child(odd) {background-color:rgba(233,246,255, .7);}
       .no {text-align:center; font-weight:bold}
       .date {text-align:center}
-      .status {position:absolute; right:20px; top:70px; font-weight: bold;}
+      .file {text-align:center; color:#bbb}
+      .file > a {color:#333}
+      .status {position:absolute; right:20px; top:10px}
+      .status .sec {display:inline-block; padding:7px 10px; border-radius: 10px; font-weight: bold; font-size:14px; background-color: rgba(255,255,255, .5);}
       .status #finish {padding:0 10px; border-radius: 20px; font-weight:bold; background-color:#fff}
+
+      .btn-toggle {padding:3px 10px; border:1px solid #8bf6ff; border-radius: 10px; color:#004d40; background-color: #8bf6ff;}
+      h2 .btn-toggle {position:absolute; right:20px; top:6px;}
+
+      th .layer, a.layer {color:green !important}
+      th .mobile, a.mobile {color:blue !important}
+      th .comm, .file > a.comm {color:red !important}
     </style>
   </head>
   <body>
     <div class="g_wrap html_list">
-      <header>
-        <h1>:: HTML LIST ::</h1>
-        <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
-      </header>
-      <nav class="g-gnb-wrap">
-        <div class="gnb-container">
-          <div class="gnb-head"></div>
-          <ul>
-            <li><a href="index.html">HTML List</a></li>
-            <li><a href="guide/guide.html">UI/UX Guide</a></li>
-          </ul>
-          <div class="gnb-close"><button type="button"><i class="fas fa-times"></i></button></div>
+      <div class="fixed-head">
+        <header>
+          <h1><i class="fab fa-html5"></i> HTML LIST</h1>
+          <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
+        </header>
+        <nav class="g-gnb-wrap">
+          <div class="gnb-container">
+            <div class="gnb-head"></div>
+            <ul>
+              <li><a href="index.html">HTML List</a></li>
+              <li><a href="guide/guide.html">UI/UX Guide</a></li>
+            </ul>
+            <div class="gnb-close"><button type="button"><i class="fas fa-times"></i></button></div>
+          </div>
+        </nav>
+        <div class="status">
+          <div class="sec">진행현황 : <span id="finish"></span> / <span id="total"></span></div>
+          <div class="sec">진척률 : <span id="progress"></span> %</div>
         </div>
-      </nav>
-      <div class="status">
-        진행현황 : <span id="finish"></span> / <span id="total"></span>
+        <table class="ls-head">
+          <colgroup>
+            <col style="width:5%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:10%">
+            <col style="width:auto">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">No</th>
+              <th scope="col" colspan="3">화면</th>
+              <th scope="col" rowspan="2">파일<br><span class="comm">공통</span> / <span class="layer">레이어</span> / <span class="mobile">모바일</span></th>
+              <th scope="col" rowspan="2">완료일</th>
+              <th scope="col" rowspan="2">비고</th>
+            </tr>
+            <tr>
+              <th scope="col">1 depth</th>
+              <th scope="col">2 depth</th>
+              <th scope="col">3 depth</th>
+            </tr>
+          </thead>
+        </table>
       </div>
-      <h2>#공통</h2>
+      <h2 id="menu-01">
+        <i class="fas fa-plug"></i> 공통
+        <button type="button" class="btn-toggle open"><i class="fas fa-chevron-up"></i></button>
+      </h2>
       <table>
         <colgroup>
           <col style="width:5%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:10%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
           <col style="width:10%">
           <col style="width:auto">
         </colgroup>
-        <thead>
-          <tr>
-            <th scope="col" rowspan="2">No</th>
-            <th scope="col" colspan="4">화면</th>
-            <th scope="col" rowspan="2">파일</th>
-            <th scope="col" rowspan="2">완료일</th>
-            <th scope="col" rowspan="2">비고</th>
-          </tr>
-          <tr>
-            <th scope="col">1 depth</th>
-            <th scope="col">2 depth</th>
-            <th scope="col">3 depth</th>
-            <th scope="col">ID</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td class="no"></td>
             <td class="1dep"></td>
             <td class="2dep"></td>
             <td class="3dep"></td>
-            <td class="id"></td>
+            <td class="file"></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
             <td class="file"></td>
             <td class="date"></td>
             <td class="etc"></td>
@@ -85,15 +125,17 @@
         </tbody>
       </table>
 
-      <h2>#모집인</h2>
+      <h2 id="menu-02">
+        <i class="fas fa-user"></i> 사용자
+        <button type="button" class="btn-toggle open"><i class="fas fa-chevron-up"></i></button>
+      </h2>
       <table>
         <colgroup>
           <col style="width:5%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:13%">
-          <col style="width:10%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
           <col style="width:10%">
           <col style="width:auto">
         </colgroup>
@@ -103,7 +145,60 @@
             <td class="1dep"></td>
             <td class="2dep"></td>
             <td class="3dep"></td>
-            <td class="id"></td>
+            <td class="file"><span class="comm">menuID</span></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="file"><span class="layer">menuID</span></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="file"><a class="comm" href="#n">menuID</a></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="file"><a class="mobile" href="#n">menuID</a></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="menu-03">
+        <i class="fas fa-cog"></i> 관리자
+        <button type="button" class="btn-toggle open"><i class="fas fa-chevron-up"></i></button>
+      </h2>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+         <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
             <td class="file"></td>
             <td class="date"></td>
             <td class="etc"></td>
@@ -113,7 +208,6 @@
             <td class="1dep"></td>
             <td class="2dep"></td>
             <td class="3dep"></td>
-            <td class="id"></td>
             <td class="file"></td>
             <td class="date"></td>
             <td class="etc"></td>
@@ -123,35 +217,89 @@
             <td class="1dep"></td>
             <td class="2dep"></td>
             <td class="3dep"></td>
-            <td class="id"></td>
             <td class="file"></td>
             <td class="date"></td>
             <td class="etc"></td>
           </tr>
         </tbody>
       </table>
+
+      <footer>
+        <p>copyright 2021. ODS all rights reserved.</p>
+      </footer>
     </div>
 
     <script>
       let elemNo = document.querySelectorAll(".no");
+      let elemTable = document.querySelectorAll("table");
       let elemDate = document.querySelectorAll(".date");
+      const fixedHead = document.querySelector(".fixed-head");
+
       let count = 0;
       
-      elemNo.forEach(function(obj, i){
+      /* elemNo.forEach(function(obj, i){
         obj.innerHTML= i + 1;
+      }); */
+
+      elemTable.forEach(function(obj){
+        const no =  obj.querySelectorAll(".no");
+        console.log(no);
+        no.forEach(function(obj, i){
+          obj.innerHTML= i + 1;
+        });
       });
 
       total.innerHTML = elemNo.length;
 
       elemDate.forEach(function(obj, i){
-        console.log(elemDate);
+        //console.log(elemDate);
         if(obj.hasChildNodes()){
           count = count + 1;
           finish.innerHTML = count;
         } else {
           finish.innerHTML = 0;
         }
+
+        let progr = ( elemNo.length / 100 ) * count;
+        progress.innerHTML = progr;
       });
+
+      const comIcon = document.querySelectorAll(".comm");
+      comIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fas fa-plug"></i> ');
+      });
+
+      const htmlWrap = document.querySelector(".html_list");
+      htmlWrap.style.paddingTop = fixedHead.clientHeight + "px";
+      //alert(fixedHead.clientHeight);
+
+      const layerIcon = document.querySelectorAll(".layer");
+      layerIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fas fa-clone"></i> ');
+      });
+
+      const mobileIcon = document.querySelectorAll(".mobile");
+      mobileIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fas fa-mobile-alt"></i> ');
+      });
+
+      const btnTbToggle = document.querySelectorAll(".btn-toggle");
+      btnTbToggle.forEach(function(obj, i){
+        obj.addEventListener('click', function(){
+          const nextTable = obj.closest("h2").nextElementSibling;
+          
+          if (obj.classList.contains("open")){
+            nextTable.style.display = "none";
+            obj.classList.remove("open");
+            obj.innerHTML = "<i class='fas fa-chevron-down'></i>";
+          } else {
+            nextTable.removeAttribute("style");
+            obj.classList.add("open");
+            obj.innerHTML = "<i class='fas fa-chevron-up'></i>";
+          } 
+        });
+      });
+      
     </script>
   </body>
 </html>
