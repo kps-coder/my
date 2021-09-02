@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-.g_wrap {padding-bottom:30px}
 .g_wrap header {padding:15px; background-color:#0086c3}
 .g_wrap header h1 {color:#fff; font-size:20px; text-align:center;}
 .g_wrap header h1 .fab {color:#fff; font-size:20px; vertical-align: -1px;}
@@ -54,5 +53,5 @@ hr {margin:20px 0;}
 
 
 
-footer {position:fixed; bottom:0; z-index: 10; width:100%; text-align:center; background-color: #000;}
+footer {width:100%; text-align:center; background-color: #000;}
 footer p {height:30px; line-height: 30px; color:#fff;}
