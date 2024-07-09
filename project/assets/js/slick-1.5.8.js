@@ -1617,7 +1617,7 @@
         _.$slider.trigger('reInit', [_]);
 
         if (_.options.autoplay === true) {
-            _.focusHandler();
+            //_.focusHandler();
         }
 
     };
@@ -2594,12 +2594,12 @@
 
         _.$slideTrack.find('.slick-active').attr({
             'aria-hidden': 'false',
-            'tabindex': '0'
+            //'tabindex': '0'
         }).find('a, input, button, select').attr({
-            'tabindex': '0'
+            //'tabindex': '0'
         });
 
-        (_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
+        //(_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
 
     };
 
