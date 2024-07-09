@@ -2599,28 +2599,28 @@
             'tabindex': '0'
         });
 
-        //(_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
+        (_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
 
     };
 
-    Slick.prototype.focusHandler = function() {
-        var _ = this;
-        _.$slider.on('focus.slick blur.slick', '*', function(event) {
-            event.stopImmediatePropagation();
-            var sf = $(this);
-            setTimeout(function() {
-                if (_.isPlay) {
-                    if (sf.is(':focus')) {
-                        _.autoPlayClear();
-                        _.paused = true;
-                    } else {
-                        _.paused = false;
-                        _.autoPlay();
-                    }
-                }
-            }, 0);
-        });
-    };
+    // Slick.prototype.focusHandler = function() {
+    //     var _ = this;
+    //     _.$slider.on('focus.slick blur.slick', '*', function(event) {
+    //         event.stopImmediatePropagation();
+    //         var sf = $(this);
+    //         setTimeout(function() {
+    //             if (_.isPlay) {
+    //                 if (sf.is(':focus')) {
+    //                     _.autoPlayClear();
+    //                     _.paused = true;
+    //                 } else {
+    //                     _.paused = false;
+    //                     _.autoPlay();
+    //                 }
+    //             }
+    //         }, 0);
+    //     });
+    // };
 
     $.fn.slick = function() {
         var _ = this,
