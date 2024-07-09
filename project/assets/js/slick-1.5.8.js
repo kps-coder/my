@@ -2599,7 +2599,7 @@
             'tabindex': '0'
         });
 
-        (_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
+        //(_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
 
     };
 
