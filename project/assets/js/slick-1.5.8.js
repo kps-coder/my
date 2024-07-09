@@ -1617,7 +1617,7 @@
         _.$slider.trigger('reInit', [_]);
 
         if (_.options.autoplay === true) {
-            _.focusHandler();
+            //_.focusHandler();
         }
 
     };
@@ -2603,24 +2603,24 @@
 
     };
 
-    // Slick.prototype.focusHandler = function() {
-    //     var _ = this;
-    //     _.$slider.on('focus.slick blur.slick', '*', function(event) {
-    //         event.stopImmediatePropagation();
-    //         var sf = $(this);
-    //         setTimeout(function() {
-    //             if (_.isPlay) {
-    //                 if (sf.is(':focus')) {
-    //                     _.autoPlayClear();
-    //                     _.paused = true;
-    //                 } else {
-    //                     _.paused = false;
-    //                     _.autoPlay();
-    //                 }
-    //             }
-    //         }, 0);
-    //     });
-    // };
+    Slick.prototype.focusHandler = function() {
+        var _ = this;
+        _.$slider.on('focus.slick blur.slick', '*', function(event) {
+            event.stopImmediatePropagation();
+            var sf = $(this);
+            setTimeout(function() {
+                if (_.isPlay) {
+                    if (sf.is(':focus')) {
+                        _.autoPlayClear();
+                        _.paused = true;
+                    } else {
+                        _.paused = false;
+                        _.autoPlay();
+                    }
+                }
+            }, 0);
+        });
+    };
 
     $.fn.slick = function() {
         var _ = this,
